@@ -2,8 +2,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <windows.h>
-#include <io.h>
 #include <fcntl.h>
 
 void UI::clearScreen() {

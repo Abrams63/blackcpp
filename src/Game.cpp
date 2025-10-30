@@ -3,10 +3,9 @@
 #include "Card.h"
 #include <iostream>
 #include <limits>
-#include <io.h>
 #include <fcntl.h>
-#include <windows.h>
 #include <unistd.h>
+#include <parallel/compatibility.h>
 
 Game::Game() {}
 
@@ -96,7 +95,7 @@ void Game::dealerTurn() {
         #ifdef _WIN32
             Sleep(1000);
         #else
-            sleep(1);
+            usleep(1000000); // 1 second in microseconds
         #endif
         
         if (m_dealer.getHandValue() > 21) {

@@ -1,7 +1,5 @@
 #include "Network.h"
 #include <iostream>
-#include <windows.h>
-#include <io.h>
 #include <fcntl.h>
 
 void Network::startMultiplayer() {

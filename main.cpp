@@ -1,20 +1,11 @@
 #include <iostream>
 #include <string>
-#include <windows.h>
-#include <io.h>
 #include <fcntl.h>
 #include "src/UI.h"
 #include "src/Game.h"
 #include "src/Network.h"
 
 int main() {
-    #ifdef _WIN32
-        SetConsoleCP(65001);
-        SetConsoleOutputCP(65001);
-    #endif
-    
-    setlocale(LC_ALL, "");
-    
     UI::showSplashScreen();
     
     int choice;
