@@ -3,7 +3,6 @@
 #include <random>
 
 Deck::Deck() {
-    // Заполняем колоду 52 картами
     for (int suit = static_cast<int>(Suit::HEARTS); suit <= static_cast<int>(Suit::SPADES); ++suit) {
         for (int rank = static_cast<int>(Rank::TWO); rank <= static_cast<int>(Rank::ACE); ++rank) {
             Card card;

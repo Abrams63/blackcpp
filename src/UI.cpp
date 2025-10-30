@@ -2,6 +2,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <windows.h>
+#include <io.h>
+#include <fcntl.h>
 
 void UI::clearScreen() {
 #ifdef _WIN32
@@ -11,17 +14,17 @@ void UI::clearScreen() {
 #endif
 }
 
-void UI::showSplashScreen() {
+void UI::showSplashScreen() { 
     std::cout << "\n\n";
-    std::cout << "  ██████╗ ██╗   ██╗███████╗███████╗ ██████╗ ███╗   ██╗    \n";
+    std::cout << "  ██████╗ ██╗   ██╗███████╗ ██████╗ ███╗   ██╗    \n";
     std::cout << " ██╔════╝ ██║   ██║╚══███╔╝╚══███╔╝██╔═══██╗████╗  ██║    \n";
     std::cout << " ██║      ██║   ██║  ███╔╝   ███╔╝ ██║   ██║██╔██╗ ██║    \n";
     std::cout << " ██║      ██║   ██║ ███╔╝   ███╔╝  ██║   ██║██║╚██╗██║    \n";
     std::cout << " ╚██████╗ ╚██████╔╝███████╗███████╗╚██████╔╝██║ ╚████║    \n";
-    std::cout << "  ╚═════╝  ╚═════╝ ╚══════╝╚══════╝ ╚═════╝ ╚═╝  ╚═══╝    \n";
+    std::cout << "  ╚═════╝  ╚═════╝ ╚══════╝╚════╝ ╚═════╝ ╚═╝  ╚═══╝    \n";
     std::cout << "                                                          \n";
     std::cout << " ██████╗  █████╗  ██████╗██╗  ██╗███████╗██████╗ ███████╗ \n";
-    std::cout << " ██╔══██╗██╔══██╗██╔════╝██║ ██╔╝██╔════╝██╔══██╗██╔════╝ \n";
+    std::cout << " ██╔══██╗██╔══██╗██╔══╝██║ ██╔╝██╔══╝██╔══██╗██╔══╝ \n";
     std::cout << " ██████╔╝███████║██║     █████╔╝ █████╗  ██████╔╝███████╗ \n";
     std::cout << " ██╔══██╗██╔══██║██║     ██╔═██╗ ██╔══╝  ██╔══██╗╚════██║ \n";
     std::cout << " ██████╔╝██║  ██║╚██████╗██║  ██╗███████╗██║  ██║███████║ \n";
@@ -58,9 +61,10 @@ void UI::drawCard(const std::string& rank, const std::string& suit) {
     std::cout << "└─────┘\n";
 }
 
-void UI::drawTable(const std::string& playerHand, int playerTotal, 
-                   const std::string& dealerHand, int dealerTotal, 
+void UI::drawTable(const std::string& playerHand, int playerTotal,
+                   const std::string& dealerHand, int dealerTotal,
                    bool showDealerHoleCard) {
+    
     clearScreen();
     std::cout << "\n========== СТОЛ ==========\n\n";
     
@@ -74,7 +78,7 @@ void UI::drawTable(const std::string& playerHand, int playerTotal,
         std::cout << "│   " << dealerHand.substr(4, 2) << " │ │   ? │\n";
         std::cout << "└─────┘ └─────┘\n";
     }
-    std::cout << "Всего: " << (showDealerHoleCard ? dealerTotal : "?") << "\n\n";
+    std::cout << "Всего: " << (showDealerHoleCard ? std::to_string(dealerTotal) : "?") << "\n\n";
     
     std::cout << "Игрок:\n";
     std::cout << playerHand;

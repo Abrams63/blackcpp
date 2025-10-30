@@ -1,14 +1,15 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "../Card.h"
+#include "Card.h"
 #include <vector>
+
 
 class Hand {
     std::vector<Card> m_cards;
 public:
     void addCard(Card card);
-    int getTotalValue(); // Считает сумму с обработкой Тузов (11→1)
+    int getTotalValue() const;
 };
 
 class Player {
@@ -22,8 +23,7 @@ public:
 
 class Dealer : public Player {
 public:
-    // Тот же, но с другими правилами
-    bool shouldHit(); // Дилер берет карту, если у него меньше 17
+    bool shouldHit();
 };
 
 #endif

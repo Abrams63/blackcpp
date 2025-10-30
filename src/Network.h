@@ -3,7 +3,7 @@
 
 class Network {
 public:
-    static void startMultiplayer(); // Заглушка для мультиплеера
+    static void startMultiplayer();
 };
 
 #endif

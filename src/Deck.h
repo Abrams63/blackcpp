@@ -11,4 +11,6 @@ public:
     void shuffle();     
     Card deal();        
 
+    };
+
 #endif

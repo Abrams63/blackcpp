@@ -1,9 +1,6 @@
 #include "Card.h"
 #include <string>
 
-// Card.cpp может быть пустым, если вся логика в заголовочном файле
-// или можно добавить здесь вспомогательные функции работы с картами
-
 std::string getSuitSymbol(Suit suit) {
     switch(suit) {
         case Suit::HEARTS: return "♥";

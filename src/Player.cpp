@@ -1,16 +1,15 @@
 #include "Player.h"
-#include "../Card.cpp" // Включаем реализацию вспомогательных функций
+#include "Card.h"
 #include <algorithm>
 
 void Hand::addCard(Card card) {
     m_cards.push_back(card);
 }
 
-int Hand::getTotalValue() {
+int Hand::getTotalValue() const {
     int total = 0;
     int aces = 0;
     
-    // Сначала считаем все карты, считая тузы как 11
     for (const auto& card : m_cards) {
         if (card.rank == Rank::ACE) {
             aces++;
@@ -20,9 +19,8 @@ int Hand::getTotalValue() {
         }
     }
     
-    // Если перебор и есть тузы, меняем их значение с 11 на 1
     while (total > 21 && aces > 0) {
-        total -= 10; // Меняем один туз с 11 на 1
+        total -= 10;
         aces--;
     }
     

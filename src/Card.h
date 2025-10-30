@@ -10,4 +10,6 @@ struct Card {
     Rank rank;
 };
 
+int getCardValue(Rank rank);
+
 #endif
